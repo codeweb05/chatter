@@ -2,7 +2,6 @@
 
 Simple node and angular chat app
 
----
 
 ## Tech
 
@@ -10,8 +9,6 @@ Simple node and angular chat app
 - [node.js](https://nodejs.org/) - Express
 - [Socket](https://socket.io/)
 - [MongoDB](https://www.mongodb.com/)
-
----
 
 ## Implementation
 
@@ -35,7 +32,6 @@ Simple node and angular chat app
 
 > The implementation has been kept simple for the sake of assignment
 
----
 
 ## Enhencements + Future scope
 
@@ -64,4 +60,3 @@ Simple node and angular chat app
 - Delete messages
   etc
 
----
