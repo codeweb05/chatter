@@ -20,6 +20,8 @@ Running test coverage:
 $ npm run coverage
 ```
 
+**Postman for admin chat history api**: https://zoom.us/j/99778113360?pwd=YmNVVGZXa3NyMHJwaWs3ZUx2NEU2QT09 
+
 **Frontend**
 Frontend requires [Angular](https://angular.io/) v10 to run.
 
