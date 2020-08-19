@@ -1,0 +1,39 @@
+<div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="'/'">Chatter</a>
+      <div>
+        <span class="displayName">
+          {{ currentUser ? currentUser.name : "" }}
+        </span>
+        <app-dropdown>
+          <button class="dropdown-item" type="button" (click)="logout()">
+            Logout
+          </button>
+        </app-dropdown>
+      </div>
+    </div>
+  </nav>
+
+  <main role="main" class="container content">
+    <div class="row chat-content">
+      <div class="col-3 chat-list-container">
+        <app-chat-list
+          [chatListUsers]="chatListUsers"
+          [selectedUser]="selectedUser"
+          [currentUser]="currentUser"
+          (selectedUserEmitter)="updateSelectedUser($event)"
+          (blockUserEmitter)="updateChatUser($event)"
+        ></app-chat-list>
+      </div>
+      <div class="col-9 message-container">
+        <app-conversation
+          [selectedUser]="selectedUser"
+          [messages]="selectedMessage"
+          [loading]="loading"
+          (newMessageEmitter)="updateMessage($event)"
+        ></app-conversation>
+      </div>
+    </div>
+  </main>
+</div>

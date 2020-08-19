@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+  border-width: 1px;
+  background-color: #f7e6e6;
+  color: #dc3545;
+}
+
+.centered {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.dropbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #3e8e41;
+}

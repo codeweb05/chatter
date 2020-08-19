@@ -1,0 +1,182 @@
+<app-header [enableOrgRegister]="false"></app-header>
+
+<div class="container">
+  <div class="row" style="justify-content: center;">
+    <div class="col-lg-5 col-md-6 col-sm-8">
+      <form
+        class="form input-group"
+        role="form"
+        [formGroup]="orgRegisterForm"
+        id="orgRegister"
+        autocomplete="off"
+        (ngSubmit)="onSubmit()"
+        style="justify-content: center;"
+      >
+        <div *ngIf="errorMsg">
+          <div class="alert alert-danger" role="alert">
+            {{ errorMsg }}
+          </div>
+        </div>
+        <div *ngIf="successMsg">
+          <div class="alert alert-success" role="alert">
+            {{ successMsg }}
+          </div>
+        </div>
+
+        <!--orgName-->
+        <div class="form-group">
+          <label class="lable-custom" for="orgName">Organisaton Name</label>
+          <input
+            type="text"
+            tabindex="1"
+            formControlName="orgName"
+            class="form-control rounded-4 is-invalid"
+            [ngClass]="{
+              'is-invalid': orfSubmitted && orf.orgName.errors
+            }"
+            name="orgName"
+            placeholder="Enter your organisation name"
+            id="orgName"
+          />
+          <div
+            *ngIf="orfSubmitted && orf.orgName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="orf.orgName.errors.required">
+              Organisation name is required
+            </div>
+          </div>
+        </div>
+        <!-- /orgName -->
+
+        <!--domain-->
+        <div class="form-group">
+          <label class="lable-custom" for="domain">Organisaton Domain</label>
+          <input
+            type="text"
+            tabindex="2"
+            formControlName="domain"
+            class="form-control rounded-4 is-invalid"
+            [ngClass]="{
+              'is-invalid': orfSubmitted && orf.domain.errors
+            }"
+            name="domain"
+            placeholder="Enter your organisation domain"
+            id="domain"
+          />
+          <div
+            *ngIf="orfSubmitted && orf.domain.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="orf.domain.errors.required">
+              Organisation domain is required
+            </div>
+          </div>
+        </div>
+        <!-- /domain -->
+
+        <!--name-->
+        <div class="form-group">
+          <label class="lable-custom" for="name">Name</label>
+          <input
+            type="text"
+            tabindex="3"
+            formControlName="name"
+            class="form-control rounded-4 is-invalid"
+            [ngClass]="{
+              'is-invalid': orfSubmitted && orf.name.errors
+            }"
+            name="name"
+            placeholder="Enter your name"
+            id="name"
+          />
+          <div *ngIf="orfSubmitted && orf.name.errors" class="invalid-feedback">
+            <div *ngIf="orf.name.errors.required">
+              Name is required
+            </div>
+          </div>
+        </div>
+        <!-- /name -->
+
+        <!-- email -->
+        <div class="form-group">
+          <label class="lable-custom" for="email">Contact Email</label>
+          <input
+            type="email"
+            tabindex="4"
+            formControlName="email"
+            class="form-control rounded-4"
+            [ngClass]="{
+              'is-invalid': orfSubmitted && orf.email.errors
+            }"
+            name="email"
+            required
+            placeholder="Primary contact email"
+          />
+          <div
+            *ngIf="orfSubmitted && orf.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="orf.email.errors.required">
+              Email is required
+            </div>
+            <div *ngIf="orf.email.errors.invalidEmail">
+              Please provide a valid email
+            </div>
+          </div>
+        </div>
+        <!--/email-->
+
+        <!--Password-->
+        <!-- <div class="form-group">
+          <label class="lable-custom" for="password">Password</label>
+          <show-hide-password size="sm" btnStyle="primary" [btnOutline]="false">
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control rounded-4"
+              [ngClass]="{
+                'is-invalid': orfSubmitted && orf.password.errors
+              }"
+              placeholder="Enter Password"
+              name="password"
+              id="password"
+              style="
+                height: calc(1.5em + 0.75rem + 2px);
+                font-size: 1rem;
+                line-height: 1.5;
+              "
+            />
+          </show-hide-password>
+          <div
+            *ngIf="orfSubmitted && orf.password.errors"
+            class="password-invalid"
+          >
+            <div *ngIf="orf.password.errors.required">Password is required</div>
+            <div *ngIf="orf.password.errors.minlength">
+              Password must be at least 8 characters.
+            </div>
+            <div *ngIf="orf.password.errors.invalidPassword">
+              Password contain at least 1 uppercase alphabetical character
+            </div>
+          </div>
+        </div> -->
+        <!-- /password -->
+        <div style="display: flex; justify-content: center; margin-top: 1rem;">
+          <button
+            style="font-weight: bold;"
+            class="btn btn-primary"
+            tabindex="5"
+            [disabled]="loading"
+          >
+            Register
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-2"
+            ></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

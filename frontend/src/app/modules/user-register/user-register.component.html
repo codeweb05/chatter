@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row" style="justify-content: center;">
+    <div class="col-5 card">
+      <form
+        class="form input-group"
+        role="form"
+        [formGroup]="userRegisterForm"
+        id="userRegisterForm"
+        autocomplete="off"
+        (ngSubmit)="onSubmit()"
+        style="justify-content: center;"
+      >
+        <!--name-->
+        <div class="form-group">
+          <div *ngIf="errorMsg">
+            <div class="alert alert-danger" role="alert">
+              {{ errorMsg }}
+            </div>
+          </div>
+          <div *ngIf="successMsg">
+            <div class="alert alert-success" role="alert">
+              {{ successMsg }}
+            </div>
+          </div>
+          <label class="lable-custom" for="name">Name</label>
+          <input
+            type="text"
+            tabindex="1"
+            formControlName="name"
+            class="form-control rounded-4 is-invalid"
+            [ngClass]="{
+              'is-invalid': urfSubmitted && urf.name.errors
+            }"
+            name="name"
+            placeholder="Enter your name"
+            id="name"
+          />
+          <div *ngIf="urfSubmitted && urf.name.errors" class="invalid-feedback">
+            <div *ngIf="urf.name.errors.required">
+              Name is required
+            </div>
+          </div>
+        </div>
+        <!-- /name -->
+        <!-- email -->
+        <div class="form-group">
+          <label class="lable-custom" for="email">Contact Email</label>
+          <input
+            type="email"
+            tabindex="2"
+            formControlName="email"
+            class="form-control rounded-4"
+            [ngClass]="{
+              'is-invalid': urfSubmitted && urf.email.errors
+            }"
+            name="email"
+            required
+            placeholder="Primary contact email"
+          />
+          <div
+            *ngIf="urfSubmitted && urf.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="urf.email.errors.required">
+              Email is required
+            </div>
+            <div *ngIf="urf.email.errors.invalidEmail">
+              Please provide a valid email
+            </div>
+          </div>
+        </div>
+        <!--/email-->
+
+        <div style="display: flex; justify-content: center; margin-top: 1rem;">
+          <button
+            style="font-weight: bold;"
+            class="btn btn-primary"
+            [disabled]="loading"
+            tabindex="3"
+          >
+            Register
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-2"
+            ></span>
+          </button>
+        </div>
+      </form>
+      <hr />
+      <app-google-auth [loading]="loading"></app-google-auth>
+    </div>
+  </div>
+</div>

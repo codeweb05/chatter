@@ -1,0 +1,31 @@
+<ul class="user-list">
+  <li
+    *ngFor="let user of chatListUsers; let i = index"
+    (click)="selectUser(user)"
+    [class.active]="isUserSelected(user.userId)"
+  >
+    {{ user.name }}
+    <app-dropdown *ngIf="currentUser.isAdmin && !user.isOrgAdmin" #dropdown>
+      <button class="dropdown-item" type="button" (click)="blockUser(user)">
+        {{ user.isActive ? "Block" : "Unblock" }}
+      </button>
+      <button class="dropdown-item" type="button" (click)="deleteUser(user, i)">
+        Delete user
+      </button>
+      <button class="dropdown-item" type="button" (click)="setAccess(user)">
+        {{ user.isAdmin ? "Revoke admin access" : "Grant admin access" }}
+      </button>
+    </app-dropdown>
+  </li>
+</ul>
+<div
+  class="alert"
+  alert-info.class="!loading"
+  *ngIf="chatListUsers.length === 0"
+>
+  {{
+    loading && chatListUsers.length === 0
+      ? "Loading your chat list."
+      : "No User Avilable to chat."
+  }}
+</div>

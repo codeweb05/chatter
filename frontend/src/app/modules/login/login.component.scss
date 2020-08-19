@@ -1,0 +1,47 @@
+.login-container {
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+}
+.card1:before {
+  content: " ";
+  position: absolute;
+  width: 26px;
+  height: 42px;
+  left: -13px;
+  right: auto;
+  top: 16px;
+  bottom: auto;
+  background: #dad5dc;
+  transform: rotate(145deg);
+}
+.card {
+  background: #dad5dc;
+  padding: 20px;
+  box-shadow: 3px 3px 8px 0px black;
+  border: none;
+  margin-top: 20px;
+}
+.card2:before {
+  background: #dad5dc;
+  transform: rotate(136deg);
+  box-shadow: -1px -1px 1px 0;
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: -22px;
+  top: 32px;
+  bottom: auto;
+  border: 22px solid;
+  border-color: #dad5dc transparent transparent transparent;
+}
+
+.row {
+  width: 400px;
+  margin: auto;
+}
+
+.container {
+  padding-top: 25px;
+}

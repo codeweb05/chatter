@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="'/'">Chatter</a>
+    <a
+      [routerLink]="'/org-register'"
+      class="btn btn-primary"
+      *ngIf="enableOrgRegister"
+    >
+      Organisation Register
+    </a>
+  </div>
+</nav>

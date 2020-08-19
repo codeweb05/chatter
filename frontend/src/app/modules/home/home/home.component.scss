@@ -1,0 +1,39 @@
+.navbar-default {
+  background-color: #394ac1;
+  border-radius: 0;
+  flex: 0 1 auto;
+}
+.navbar-default .navbar-brand {
+  color: #fff;
+}
+
+.body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+.content {
+  height: 75vh;
+  margin-top: 5vh;
+}
+
+.chat-content {
+  height: 100%;
+}
+
+.chat-list-container {
+  padding: 25px 15px;
+  height: 100%;
+  -webkit-box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+.message-container {
+  height: 100%;
+}
+
+.displayName {
+  color: white;
+  margin-right: 20px;
+}
