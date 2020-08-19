@@ -16,9 +16,14 @@ const deleteUser = async (req, res) => {
 	await userService.deleteUser(req.body.userId);
 	res.status(httpStatus.CREATED).json({ message: 'success' });
 };
+const messageHistory = async (req, res) => {
+	const data = await userService.messageHistory(req.body);
+	res.status(httpStatus.CREATED).json(data);
+};
 
 module.exports = {
 	setAccess,
 	blockUser,
-	deleteUser
+	deleteUser,
+	messageHistory
 };

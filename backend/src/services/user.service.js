@@ -1,6 +1,8 @@
 'use strict';
 const httpStatus = require('http-status');
 const { User, Org, Message } = require('../models');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 const ApiError = require('../utils/ApiError');
 
 const createUser = async (params) => {
@@ -92,6 +94,41 @@ const getChat = async ({ _id: userId, domain }) => {
 		}
 	]);
 };
+const messageHistory = async ({ userId1, userId2 }) => {
+	userId1 = ObjectId(userId1);
+	userId2 = ObjectId(userId2);
+	return await Message.aggregate([
+		{
+			$match: {
+				$or: [
+					{
+						$and: [
+							{
+								toUserId: { $eq: userId1 }
+							},
+							{
+								fromUserId: { $eq: userId2 }
+							}
+						]
+					},
+					{
+						$and: [
+							{
+								toUserId: { $eq: userId2 }
+							},
+							{
+								fromUserId: { $eq: userId1 }
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			$project: { toUserId: 1, fromUserId: 1, sentAt: '$createdAt', _id: 0 }
+		}
+	]);
+};
 
 const saveSocketId = async (userId, socketId) => {
 	return await User.findOneAndUpdate({ _id: userId }, { $set: { socketId } });
@@ -137,5 +174,6 @@ module.exports = {
 	setAccess,
 	checkStatus,
 	checkOrgAdmin,
-	deleteUser
+	deleteUser,
+	messageHistory
 };

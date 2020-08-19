@@ -28,5 +28,11 @@ router.post(
 	validate(adminValidation.setAccess),
 	catchAsync(adminController.setAccess)
 );
+router.post(
+	'/messageHistory',
+	// auth('manageUsers'), // commented this line for easy access from postman
+	validate(adminValidation.messageHistory),
+	catchAsync(adminController.messageHistory)
+);
 
 module.exports = router;
