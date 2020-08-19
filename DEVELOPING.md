@@ -6,7 +6,7 @@ Simple node and angular chat app
 
 **Backend**
 Backend requires [Node.js](https://nodejs.org/) v10+ to run.
-put the **.env** file in backend folder.
+put the **.env** file in backend folder. _(contains mongoDB atlas url)_
 
 ```sh
 $ cd backend
