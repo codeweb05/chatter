@@ -28,7 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.2",
     "classlist.js": "^1.1.20150312",
-    "core-js": "^3.6.5",
+    "core-js": "^3.20.2",
     "ngx-show-hide-password": "^2.3.0",
     "rxjs": "~6.5.5",
     "socket.io-client": "^2.3.0",
